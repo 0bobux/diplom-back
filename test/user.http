@@ -1,0 +1,56 @@
+### Регистрация нового пользователя
+POST /api/user/signup HTTP/1.1
+Host: localhost:5000
+Content-type: application/json; charset=utf-8
+
+{
+    "email": "bobux@mail.ru",
+    "password": "qwerty"
+}
+
+### Аутентификация (вход) пользователя
+POST /api/user/login HTTP/1.1
+Host: localhost:5000
+Content-type: application/json; charset=utf-8
+
+{
+    "email": "bobux@mail.ru",
+    "password": "qwerty"
+}
+
+### Список всех пользователей
+GET /api/user/getall HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJ1c2VyM0BtYWlsLnJ1Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTU4MDg1MzYsImV4cCI6MTcxNTg5NDkzNn0.DyDfGlQVY_rZoxjOMjTkKN2bYS4wO4CxqE0WnkMZs_k
+Host: localhost:5000
+
+### Получить одного пользователя
+GET /api/user/getone/1 HTTP/1.1
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NTZ9.D8CmI...VMU8Q
+Host: localhost:5000
+
+### Создать нового пользователя
+POST /api/user/create HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NTZ9.D8CmI...VMU8Q
+Content-type: application/json; charset=utf-8
+
+{
+    "email": "bobux@mail.ru",
+    "password": "qwerty"
+}
+
+### Обновить пользователя
+PUT /api/user/update/1 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NTZ9.D8CmI...VMU8Q
+Content-type: application/json; charset=utf-8
+
+{
+    "email": "updated@mail.ru",
+    "password": "qwerty(updated)"
+}
+
+### Удалить пользователя
+DELETE /api/user/delete/2 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NTZ9.D8CmI...VMU8Q

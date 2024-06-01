@@ -1,0 +1,32 @@
+### Список всех категорий
+GET /api/category/getall HTTP/1.1
+Host: localhost:5000
+
+### Получить одну категорию
+GET /api/category/getone/1 HTTP/1.1
+Host: localhost:5000
+
+### Создать новую категорию
+POST /api/category/create HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJib2J1eEBtYWlsLnJ1Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE2OTk5MTM3LCJleHAiOjE3MTcwODU1Mzd9.YZ7LlF33GD4RmiVvr7oPKFKAL6Pa3n4MxPw6qQuImcE
+Content-type: application/json; charset=utf-8
+
+{
+    "name": "Спортивные туры"
+}
+
+### Обновить категорию
+PUT /api/category/update/1 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NDR9.eDlzf...87TTA
+Content-type: application/json; charset=utf-8
+
+{
+    "name": "Экскурсионный"
+}
+
+### Удалить категорию
+DELETE /api/category/delete/1 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NDR9.eDlzf...87TTA

@@ -1,0 +1,68 @@
+### Список всех туров
+GET /api/tour/getall HTTP/1.1
+Host: localhost:5000
+
+### Получить один тур
+GET /api/tour/getone/4 HTTP/1.1
+Host: localhost:5000
+
+### Создать новый тур
+POST /api/tour/create HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJib2J1eEBtYWlsLnJ1Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE2OTk5MTM3LCJleHAiOjE3MTcwODU1Mzd9.YZ7LlF33GD4RmiVvr7oPKFKAL6Pa3n4MxPw6qQuImcE
+Content-Type: multipart/form-data; boundary=MultiPartFormDataBoundary
+
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain; charset=utf-8
+
+Армения каждый день
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="price"
+Content-Type: text/plain; charset=utf-8
+
+89012
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="props"
+Content-type: text/plain; charset=utf-8
+
+[{"name": "Проживание", "value": "Включено"},{"name": "Авиа-билеты", "value": "Входят в стоимость"}]
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="image"; filename="picture.jpg"
+Content-Type: image/jpeg
+
+< ./picture.jpg
+--MultiPartFormDataBoundary--
+
+### Обновить тур
+PUT /api/tour/update/8 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NDR9.eDlzf...87TTA
+Content-Type: multipart/form-data; boundary=MultiPartFormDataBoundary
+
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain; charset=utf-8
+
+тур № 8 (new)
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="price"
+Content-Type: text/plain; charset=utf-8
+
+99999
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="props"
+Content-type: text/plain; charset=utf-8
+
+[{"name": "Свойство 3 (new)", "value": "Значение 3 (new)"},{"name": "Свойство 4 (new)", "value": "Значение 4 (new)"}]
+--MultiPartFormDataBoundary
+Content-Disposition: form-data; name="image"; filename="picture.jpg"
+Content-Type: image/jpeg
+
+< ./picture-new.jpg
+--MultiPartFormDataBoundary--
+
+### Удалить тур
+DELETE /api/tour/delete/8 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...2NDR9.eDlzf...87TTA

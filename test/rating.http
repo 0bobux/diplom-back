@@ -1,0 +1,7 @@
+### Получить рейтинг одного тура
+GET /api/rating/tour/8 HTTP/1.1
+Host: localhost:5000
+
+### Проголосовать за один тур
+POST /api/rating/tour/8/rate/5 HTTP/1.1
+Host: localhost:5000

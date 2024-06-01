@@ -1,0 +1,73 @@
+### Список всех заказов (для администратора)
+GET /api/order/admin/getall HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJib2J1eEBtYWlsLnJ1Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE3MDI0MzgyLCJleHAiOjE3MTcxMTA3ODJ9.sTMnz4kvjn4yvzEx9ZsQEpMe5PKp6HgnXaw2h2GBOW8
+
+### Получить один заказ (для администратора)
+GET /api/order/admin/getone/1 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...EwMzJ9.cMZ6c...1CgMA
+
+### Получить заказы пользователя (для администратора)
+GET /api/order/admin/getall/user/5 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb...XVCJ9.eyJpZ...EwMzJ9.cMZ6c...1CgMA
+
+### Создать новый заказ (для администратора)
+POST /api/order/admin/create HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJib2J1eEBtYWlsLnJ1Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE3MDI0MzgyLCJleHAiOjE3MTcxMTA3ODJ9.sTMnz4kvjn4yvzEx9ZsQEpMe5PKp6HgnXaw2h2GBOW8
+Content-type: application/json; charset=utf-8
+
+{
+    "name": "Сергей Иванов",
+    "email": "ivanov@mail.ru",
+    "phone": "(999) 123-45-67",
+    "comment": "Комментарий к заказу",
+    "userId": 3,
+    "items": [
+        {"name": "Россия", "price": 123, "quantity": 2},
+        {"name": "Казахстан", "price": 456, "quantity": 1}
+    ]
+}
+
+
+### Список всех заказов пользователя
+GET /api/order/user/getall HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb.....XVCJ9.eyJpZ...kwNX0.vbDBqh...tpMnQ
+Cookie: basketId=s%3A38.mDPMc%2FsU2MOOiCtZZFPZ%2F9KWza4peanqnQoquOqX26o
+
+### Получить один заказ пользователя
+GET /api/order/user/getone/5 HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhb.....XVCJ9.eyJpZ...kwNX0.vbDBqh...tpMnQ
+Cookie: basketId=s%3A38.mDPMc%2FsU2MOOiCtZZFPZ%2F9KWza4peanqnQoquOqX26o
+
+### Создать новый заказ пользователя
+POST /api/order/user/create HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyMkBtYWlsLnJ1Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MTcwMjQ3NDMsImV4cCI6MTcxNzExMTE0M30.yb3p5sV8GwElXz_a_gAl6WKnmyOFtA5IOith4_gQQWk
+Cookie: basketId=s%3A16.UGCkVYLmdMUiH5su1i9zBWFgshtKUICA%2FXhm9htQmfE	
+Content-type: application/json; charset=utf-8
+
+{
+    "name": "Иван Николаев",
+    "email": "user2@mail.ru",
+    "phone": "(999) 123-45-67",
+    "comment": "Комментарий к заказу"
+}
+
+
+### Создать новый заказ посетителя
+POST /api/order/guest/create HTTP/1.1
+Host: localhost:5000
+Cookie: basketId=s%3A16.UGCkVYLmdMUiH5su1i9zBWFgshtKUICA%2FXhm9htQmfE	
+Content-type: application/json; charset=utf-8
+
+{
+    "name": "Марк Ладейщиков",
+    "email": "mark@mail.ru",
+    "phone": "(999) 333-44-55",
+    "comment": "zxc"
+}
