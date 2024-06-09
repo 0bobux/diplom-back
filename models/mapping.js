@@ -66,28 +66,34 @@ const Order = sequelize.define('order', {
     amount: {type: DataTypes.INTEGER, allowNull: false},
     status: {type: DataTypes.INTEGER, allowNull: false, defaultValue: 0},
     comment: {type: DataTypes.STRING},
+    createdAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
+    updatedAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
     prettyCreatedAt: {
         type: DataTypes.VIRTUAL,
         get() {
             const value = this.getDataValue('createdAt')
+            if (!value) return null;
             const day = value.getDate()
             const month = value.getMonth() + 1
             const year = value.getFullYear()
             const hours = value.getHours()
             const minutes = value.getMinutes()
-            return day + '.' + month + '.' + year + ' ' + hours + ':' + minutes
+            return `${day}.${month}.${year} ${hours}:${minutes}`;
+            // return day + '.' + month + '.' + year + ' ' + hours + ':' + minutes
         }
     },
     prettyUpdatedAt: {
         type: DataTypes.VIRTUAL,
         get() {
             const value = this.getDataValue('updatedAt')
+            if (!value) return null;
             const day = value.getDate()
             const month = value.getMonth() + 1
             const year = value.getFullYear()
             const hours = value.getHours()
             const minutes = value.getMinutes()
-            return day + '.' + month + '.' + year + ' ' + hours + ':' + minutes
+            return `${day}.${month}.${year} ${hours}:${minutes}`;
+            // return day + '.' + month + '.' + year + ' ' + hours + ':' + minutes
         }
     },
 })

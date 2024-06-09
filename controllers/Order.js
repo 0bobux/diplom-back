@@ -59,9 +59,12 @@ class Order {
 
     async adminGetAll(req, res, next) {
         try {
+            console.log("adminGetAll request received");
             const orders = await OrderModel.getAll()
+            console.log("Orders fetched from DB in adminGetAll:", orders);
             res.json(orders)
         } catch(e) {
+            console.error("Error in adminGetAll:", e);
             next(AppError.badRequest(e.message))
         }
     }
@@ -104,9 +107,12 @@ class Order {
 
     async userGetAll(req, res, next) {
         try {
+            console.log("userGetAll request received");
             const orders = await OrderModel.getAll(req.auth.id)
+            console.log("Orders fetched from DB in userGetAll:", orders);
             res.json(orders)
         } catch(e) {
+            console.error("Error in userGetAll:", e);
             next(AppError.badRequest(e.message))
         }
     }

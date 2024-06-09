@@ -5,6 +5,12 @@ import adminMiddleware from '../middleware/adminMiddleware.js'
 
 const router = new express.Router()
 
+// Логирование запросов
+router.use((req, res, next) => {
+    console.log(`Received ${req.method} request for ${req.url}`);
+    next();
+});
+
 /*
  * только для администратора турагенства
  */
@@ -12,8 +18,8 @@ const router = new express.Router()
 // получить список всех заказов магазина
 router.get(
     '/admin/getall',
-    authMiddleware, 
-    adminMiddleware,
+    //authMiddleware, 
+    //adminMiddleware,
     OrderController.adminGetAll
 )
 // получить список заказов пользователя

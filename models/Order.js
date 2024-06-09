@@ -9,6 +9,7 @@ class Order {
             options.where = {userId}
         }
         const orders = await OrderMapping.findAll(options)
+        console.log("Orders fetched from DB in getAll:", orders);
         return orders
     }
 
@@ -24,6 +25,7 @@ class Order {
         if (!order) {
             throw new Error('Заказ не найден в БД')
         }
+        console.log("Order fetched from DB in getOne:", order);
         return order
     }
 
